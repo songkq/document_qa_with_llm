@@ -1,0 +1,5 @@
+elasticsearch==7.17.0
+Flask==2.3.2
+langchain==0.0.239
+pymilvus==2.2.13
+Requests==2.31.0
