@@ -29,7 +29,8 @@ class DataProcessor(object):
         texts = text_splitter.split_documents(documents)
         return texts
 
-    def text_embedding(self, texts):
+    @staticmethod
+    def text_embedding(texts):
         _ids = []
         sources = []
         contents = []
@@ -37,6 +38,7 @@ class DataProcessor(object):
         for i, text in enumerate(texts):
             source = text.metadata['source']
             content = text.page_content
+            content = content.replace('\n', '')
             embedding = get_text_embedding(content)
             _ids.append(i + 1)
             sources.append(source)

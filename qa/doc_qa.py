@@ -45,7 +45,6 @@ class DocQA(object):
         milvus_search_result = self.get_milvus_search_result()
         es_search_result = self.get_es_search_result()
         for content in milvus_search_result + es_search_result:
-            content = content.replace('\n', '')
             if content not in contents:
                 contents.append(content)
         return contents

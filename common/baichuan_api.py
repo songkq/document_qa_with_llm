@@ -16,9 +16,9 @@ def get_text_embedding(req_text):
 
 def chat_completion(message):
     url = "http://10.241.132.209:8000/v1/chat/completions"
-    system_role = '你是一个出色的文档问答助手，回答要合理、简洁，回复语言采用中文，。' \
-                  '若问题与文本片段相关，请根据给定的文本片段和问题，答案以"根据文档知识"开头' \
-                  '若问题与文本片段相关性较小，则使用外部知识回答问题，答案以"根据外部知识"开头。'
+    system_role = '你是一个出色的文档问答助手，根据给定的文本片段和问题进行回答，回答要合理、简洁，回复语言采用中文。\n' \
+                  '若能找到对应答案，答案以"根据文档知识"开头。\n' \
+                  '若无法找到对应答案，则使用外部知识进行回答，答案以"根据外部知识"开头。\n'
     payload = json.dumps({
         "model": "Baichuan-13B-Chat",
         "messages": [
